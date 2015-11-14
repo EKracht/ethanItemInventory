@@ -34,9 +34,9 @@ function deleteItem(e){
 
 function addItem(e){
   var $target = $(e.target);
-  var $inputName = $target.prev().prev().prev();
-  var $inputValue = $target.prev().prev();
-  var $inputDescription = $target.prev();
+  var $inputName = $target.next().next().next();
+  var $inputValue = $target.next().next().next().next();
+  var $inputDescription = $target.next().next().next().next().next();
   var itemName = $inputName.val();
   var itemValue = $inputValue.val();
   var itemDescription = $inputDescription.val();
@@ -75,34 +75,6 @@ function addItem(e){
       console.log(err);
     })
 }
-
-
-
-  // var $target = $(e.target);
-  // var $container = $target.closest('.container');
-  // var id = $container.data('value');
-  // var stringUrl = '/rooms/' + id;
-  // var stringArray = stringUrl.split("\"");
-  // var roomId = stringArray.join("");
-
-  // // var itemGrab = $('.inputItem').val();
-  // var itemId = $(`'${item.name}'`).data('id');
-  // console.log(itemId);
-
-  // $('input').val('');
-
-  // $.post('/' + roomId + '/addItem/', {name: roomName})
-  // .done(function(data){
-  //   console.log('hit in add');
-  //   console.log('name', data.name);
-  //   var $room = $('#sample').clone();
-  //   $room.removeAttr('id').attr('data-value', data._id);
-  //   $room.find('.panel-heading').addClass(data.name);
-  //   $('#bigContainer').append($room);
-  //   location.reload();
-  // })
-  // .fail(function(err){
-  // })
 
 function deleteRoom(e){
   var $target = $(e.target);
@@ -144,44 +116,3 @@ function addRoom(){
     console.log(err);
   })
 }
-
-
-
-function saveEdit(){
-  var message = {};
-  message.name = $('#editName').val();
-  message.posted = $('#editMessage').val();
-  message.time = Date.now();
-  message.change = timeChange;
-
-  $('input').each(function(index, input){
-    $(input).val('');
-  });
-
-  $.ajax({
-    url: '/messageBoard',
-    type: 'PUT',
-    data: message
-  })
-  .done(function(data){
-    console.log(data);
-    $('#messageList').children("tr:nth-child(" + parseInt(index.value + 1) + ")").replaceWith(messageRow(message));
-  })
-  .fail(function(err){
-    console.log(err);
-  })
-}
-
-function openModalEdit(e){
-  var $target = $(e.target);
-  var $tr = $target.closest('tr');
-  index.value = $tr.index();
-  var $targetRow = $target.closest('tr');
-  var $tdName = $targetRow.children('.name');
-  var $tdMessage = $targetRow.children('.posted');
-  var $tdTime = $targetRow.children('.time');
-  $('.editName').val($tdName.text());
-  $('.editMessage').val($tdMessage.text());
-  timeChange = $tdTime.text();
-}
-
