@@ -1,17 +1,18 @@
 {
   "name": "item",
-  "description": "First, cd into the project directory, and do `npm run setup` to install the dependencies listed in the package.json and bower.json.  Then you can start the server in Node.",
+  "description": "Inventory Manager",
   "main": "app.js",
   "authors": [
     "EKracht <ethan1kracht@gmail.com>"
   ],
   "license": "ISC",
+  "homepage": "https://github.com/EKracht/ethanItemInventory",
   "moduleType": [],
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "public/bower_components",
     "test",
     "tests"
   ],
@@ -19,8 +20,5 @@
     "bootswatch": "~3.3.5",
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5"
-  },
-  "resolutions": {
-    "bootswatch": "~3.3.5"
   }
 }

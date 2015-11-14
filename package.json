@@ -1,23 +1,29 @@
 {
   "name": "item",
   "version": "1.0.0",
-  "description": "First, cd into the project directory, and do `npm run setup` to install the dependencies listed in the package.json and bower.json.  Then you can start the server in Node.",
+  "description": "Inventory Manager",
   "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.14.1",
-    "bower": "^1.6.5",
-    "ejs": "^2.3.4",
-    "express": "^4.13.3",
-    "jade": "^1.11.0",
-    "mongoose": "^4.2.5",
-    "morgan": "^1.6.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "postinstall": "bower i"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EKracht/ethanItemInventory.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EKracht/ethanItemInventory/issues"
+  },
+  "homepage": "https://github.com/EKracht/ethanItemInventory#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "mongoose": "^4.2.5",
+    "morgan": "^1.6.1"
+  }
 }
