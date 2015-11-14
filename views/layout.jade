@@ -2,11 +2,14 @@ doctype html
 html(lang="en")
   head
     title= title
+    link(href="bower_components/bootswatch/superhero/bootstrap.min.css", rel='stylesheet')
     link(href="bower_components/bootstrap/dist/css/bootstrap.min.css", rel='stylesheet')
     link(href="css/style.css", rel='stylesheet')
 
   body
     block content
     script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='js/index/main.js')
     block scripts
 

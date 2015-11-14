@@ -4,19 +4,64 @@ block content
   .container
     br
     .jumbotron
-      h1 Hey!
+      h1 Hello!
       p Check out my 
         a(href='/items') Items
-        | !!!
+        | !!! (Object form)
       p Check out my
         a(href='/rooms')  Rooms
-        | !!!
+        | !!! (Object form)
+  
+    .row
+      h1= title
+    .row
+      h2= 'Rooms'
 
-    table  
-      each room in rooms
-        div.room(data-mongo= room._id.toString()) #{room.name}
-          each item in room.items
-            div.item(data-mongo= item.name) #{item.name}
-      
+      input#inputRoom(placeholder= 'Room')
+      button.btn.btn-success#addRoom Add Room
+  
+      br
+
+  #bigContainer
+    .container#sample
+      .row
+        .col-xs-offset-3.col-xs-6.col-xs-offset-3
+          .panel-group
+            .panel.panel-default
+              .panel-heading sample room
+                h4.panel-title
+                  a(data-toggle='collapse', href='#collapse') show items
+              .panel-collapse.collapse(id= 'collapse')
+                .panel-body
+                  button.btn.btn-success.addItem Add Item
+                  button.btn.btn-danger.deleteRoom Delete Room
+                  br
+                  input.inputItem(placeholder= 'Item')
+                  p Items:
+                    li sample item
+    - var n = 1
+    each room in rooms
+      .container(data-value= room._id)
+        .row
+          .col-xs-offset-3.col-xs-6.col-xs-offset-3
+            .panel-group
+              .panel.panel-default
+                .panel-heading(class= room.name)= room.name
+                  h4.panel-title
+                    a(data-toggle='collapse', href='#collapse' + n) show items
+                .panel-collapse.collapse(id= 'collapse' + n++)
+                  .panel-body
+                    button.btn.btn-success.addItem Add Item
+                    button.btn.btn-danger.deleteRoom Delete Room
+                    br
+                    input.inputItem(placeholder= 'Item Name')
+                    input.inputValue(placeholder= 'Value')
+                    input.inputDescription(placeholder= 'Description')
+                    p Items:
+                    each item in room.items      
+                      button.btn.btn-info.deleteItem Delete Item Below
+                      li(id= item.name, data-id= item._id)= `name: ${item.name}, value: ${item.value}, description: ${item.description}`
+
+
 block scripts
-  script(src='js/index/main.js')
+  

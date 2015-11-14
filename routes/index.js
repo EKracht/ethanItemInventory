@@ -14,13 +14,4 @@ router.get('/', function(req, res) {
   }).populate('items');
 });
 
-
 module.exports = router;
-
-
-// router.get('/', function(req, res) {
-//   Item.find({}, function(err, items){
-//     if (err) return res.status(400).send('oops');
-//     res.render("index", {items: items});
-//   });
-// });

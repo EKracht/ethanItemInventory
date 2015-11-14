@@ -1,3 +1,9 @@
-# Express Example
+Inventory Manager
 
-First, cd into the project directory, and do `npm run setup` to install the dependencies listed in the package.json and bower.json.  Then you can start the server in Node.
+This app will allow you to add rooms and add items in those rooms. You can also delete rooms and items. You are able to see what items are in different rooms with a value and description of each item.
+
+This app use express and mongo on the backend and jquery for the frontend.
+
+I am sorry for the reloads on item additions.
+
+Thank you and have a nice day.

@@ -12,19 +12,6 @@ router.get('/', function(req, res){
   });
 });
 
-// router.get('/', function(req, res){
-//   Room.find({}).exec(function (err, rooms) {
-//     res.status(err ? 400 : 200).send(err || rooms);
-//   }).limit(2).populate('items'); //will return 2 rooms only
-// });
-
-// router.get('/', function(req, res){
-//   Room.find({}).exec(function (err, rooms) {
-//     res.status(err ? 400 : 200).send(err || rooms);
-//   }).select('name');
-// });
-
-
 router.put('/:roomId/addItem/:itemId', function(req, res) {
   Room.findById(req.params.roomId, function(err, room){ //first find room properly
     if(err) return res.status(400).send(err.message);
@@ -40,7 +27,6 @@ router.put('/:roomId/addItem/:itemId', function(req, res) {
     });
   });
 });
-
 
 router.get('/:id', (req, res) => {
   Room.findById(req.params.id, function(err, room){
@@ -63,7 +49,7 @@ router.delete('/:id', (req, res) => {
 router.post('/', function(req, res){
   var room = new Room(req.body);
   room.save(function(err){
-    res.status(err ? 400 : 200).send(err || `${req.body.name} added`);
+    res.status(err ? 400 : 200).send(err || room);
   });
 });
 
