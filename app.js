@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/itemChecker');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/itemChecker');
 
 var app = express();
 
