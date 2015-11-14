@@ -1,0 +1,22 @@
+extends ./layout.jade
+
+block content
+  .container
+    br
+    .jumbotron
+      h1 Hey!
+      p Check out my 
+        a(href='/items') Items
+        | !!!
+      p Check out my
+        a(href='/rooms')  Rooms
+        | !!!
+
+    table  
+      each room in rooms
+        div.room(data-mongo= room._id.toString()) #{room.name}
+          each item in room.items
+            div.item(data-mongo= item.name) #{item.name}
+      
+block scripts
+  script(src='js/index/main.js')

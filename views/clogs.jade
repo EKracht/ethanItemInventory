@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(href="bower_components/bootstrap/dist/css/bootstrap.min.css", rel='stylesheet')
+    link(href="bower_components/font-awesome/css/font-awesome.min.css", rel='stylesheet')
+    link(href="css/style.css", rel='stylesheet')
+
+  body
+    .container
+      - var properties = ['name', 'cost', 'quality', 'material']
+      .row
+        h1= title
+      .row
+        each prop in properties
+          label #{prop.toUpperCase()}:
+          input(id= prop)
+        button.btn#submit Add
+      .row
+        table.table.table-hover
+          thead
+            tr
+              each prop in properties
+                th= prop
+              th: th
+          tbody#clogList
+            each item, index in items
+              tr
+                each prop in properties
+                  td(class= prop, id= prop)= items[index][prop]
+                td.edit.text-center
+                  i.fa.fa-pencil-square-o.fa-lg
+                td.delete.text-center
+                  i.fa.fa-trash-o.fa-lg
+
+    script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='js/clogs/main.js')
